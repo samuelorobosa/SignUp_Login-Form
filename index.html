@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SignUp/Login Form</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<style type="text/css">
+
+			/*parsley*/
+			input.parsley-success {
+			  color: #468847;
+			  background-color: #DFF0D8;
+			  border: 1px solid #D6E9C6;
+			}
+
+			input.parsley-error{
+			  color: #B94A48;
+			  background-color: #F2DEDE;
+			  border: 1px solid #EED3D7;
+			}
+
+			.parsley-errors-list {
+			  margin-top: 0.23rem;
+			  text-align: center;
+			  padding: 0;
+			  list-style-type: none;
+			  font-size: 0.9em;
+			  line-height: 0.9em;
+			  opacity: 0;
+			  color: #B94A48;
+
+			  transition: all .3s ease-in;
+			  -o-transition: all .3s ease-in;
+			  -moz-transition: all .3s ease-in;
+			  -webkit-transition: all .3s ease-in;
+			}
+
+			.parsley-errors-list.filled {
+			  opacity: 1;
+			}
+
+			/*navbar*/
+
+			body,html{
+				height: 100vh;
+				width: 100vw;
+				background-color: #F9F9FF;
+				font-family: 'Lato', sans-serif;
+				background-image: url("https://images.unsplash.com/photo-1489549132488-d00b7eee80f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-size: cover;
+				overflow: hidden;
+			}
+
+			.navbar .navbar-header,
+			.navbar-collapse {
+			    margin: 0;
+			    float: none;
+			    display:inline-block;
+			    vertical-align: top;
+			    padding-left: 0;
+			    padding-right: 0;
+			}
+
+			@media (max-width: 768px) {
+			    .navbar-collapse  {
+			        display: block;
+			    }
+			}
+
+			/*navbar ends here*/
+
+				.wrapper{
+					display: flex;
+					height: 550px;
+					justify-content: center;
+					overflow: hidden;
+					flex: 1;
+					
+				}
+
+					.first-half{
+						background-image: linear-gradient(to right, #94309F, #52347C);
+						color: #fff;
+						padding: 2rem 8rem;
+						border-top-left-radius: 5px;
+						border-bottom-left-radius: 5px;
+					}
+
+					.first-half div{
+						margin-top: 7rem;
+						width: 300px;
+					}
+
+
+					.second-half{
+						padding: 2rem 4rem;
+						width: 500px;
+						background-color: #fff;
+						border-top-right-radius: 5px;
+						border-bottom-right-radius: 5px;
+						color: #808080;
+						overflow: hidden;
+						
+					}
+
+					.create-account{
+						color: #454e99;
+						font-weight: 700;
+					}
+
+					.terms{
+						color: #454e99;
+						margin-bottom: 2px;
+						margin-top: 2px;
+						font-size: 1.5rem;
+					}
+
+
+					/*Form*/
+
+					.first-panel-header{
+						margin-bottom: 2.5rem;
+					}
+
+					#email,
+					input[type=password]{
+						margin-left: auto;
+						margin-right: auto;
+						width: 80%;
+						display: block;
+						outline: none;
+						margin-top: 15px;
+						border: none;
+						border-bottom: 2px solid #D8D8DD;
+						color: #454e99;
+						padding: 0.8rem 0.5rem 0.5rem 0.5rem ;
+						font-size: 1.6rem;
+						border-top-right-radius: 3px;
+						border-top-left-radius: 3px;
+					}
+
+
+					#email:focus,
+					input[type=password]:focus{
+						border-bottom: 2px solid #454e99;
+
+					}
+
+					input[type=checkbox]{
+						margin-top: 15px;
+					}
+
+					hr{
+						border-top: 2px solid darkgray;
+					}
+
+					button{
+						background-color: #800674;
+						color: white;
+						border: 1px solid #800674 ;
+						border-radius: 3px;
+						padding: 1rem 3.4rem;
+						text-align: center;
+						font-size: 1.65rem;
+						letter-spacing: 1.5px;
+						margin-top: 15px;
+					}
+
+					button:focus{
+						outline: none;
+					}
+
+					button:hover{
+						background: #661A60;
+
+						color: white;
+					}
+
+					button:focus {
+  						outline: none;
+  						box-shadow: 0 0 0 3px #CC74C5;
+					}
+
+					form{
+						padding: 0rem 1rem 3rem 1rem;
+						text-align: center;
+						overflow: hidden;
+						height: 550px;
+						overflow-y: hidden;
+						margin-top: -25px;
+					}
+
+					#warning{
+			  	  	color: red;
+			    	display: none;
+			    	text-align: left;
+					}
+
+					#confirmation_form{
+						padding-top: 6.37rem;
+					}
+
+					#confirmation_form .back{
+						margin-top: 6.5rem;
+						font-size: 1.4rem;
+						font-weight: 600;
+						color: #454e99;
+					}
+
+					#confirmation_form .back button{
+							padding: 0.3rem 1.8rem;	
+							margin-left: 1rem;
+							background: white;
+							color: #454e99;
+							border: 1px solid #454e99;
+					}
+
+					#confirmation_form .back button:hover{
+							color: white;
+							background: #454e99;
+					}
+
+					#confirmation_form .back button:focus{
+						outline: none;
+  						box-shadow: 0 0 0 3px #B8BCC0;
+					}
+
+				/*Form*/
+
+/*Bubbles*/
+
+	#bubbles { 
+height: 100%;
+position: relative;
+    z-index: 999999;
+}
+.bubble {
+    width: 60px;
+    height: 60px;
+    background: #800674;
+    border-radius: 200px;
+    -moz-border-radius: 200px;
+    -webkit-border-radius: 200px;
+    position: absolute;
+}
+
+.x1 {
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9);
+    opacity: 0.6;
+    -webkit-animation: moveclouds 2s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 2s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -o-animation: moveclouds 2s linear infinite, sideWays 4s ease-in-out infinite alternate;
+}
+
+.x2 {
+    left: 20%;
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 0.6;
+    -webkit-animation: moveclouds 5s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 5s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -o-animation: moveclouds 5s linear infinite, sideWays 5s ease-in-out infinite alternate;
+}
+.x3 {
+    left: 35%;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.6;
+    -webkit-animation: moveclouds 10s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 10s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -o-animation: moveclouds 10s linear infinite, sideWays 4s ease-in-out infinite alternate;
+}
+.x4 {
+    left: 47%;
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    transform: scale(0.75);
+    opacity: 0.6;
+    -webkit-animation: moveclouds 11s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 11s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -o-animation: moveclouds 11s linear infinite, sideWays 2s ease-in-out infinite alternate;
+}
+.x5 {
+    left: 15%;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.6; 
+    -webkit-animation: moveclouds 12s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 12s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -o-animation: moveclouds 12s linear infinite, sideWays 1s ease-in-out infinite alternate;
+}
+
+.x6 {
+    left: 70%;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.6; 
+    -webkit-animation: moveclouds 12s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 12s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -o-animation: moveclouds 12s linear infinite, sideWays 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes moveclouds { 
+    0% { 
+        top: 500px;
+    }
+    100% { 
+        top: -500px;
+    }
+}
+
+@-webkit-keyframes sideWays { 
+    0% { 
+        margin-left:0px;
+    }
+    100% { 
+        margin-left:50px;
+    }
+}
+
+@-moz-keyframes moveclouds {     
+    0% { 
+        top: 500px;
+    }
+
+    100% { 
+        top: -500px;
+    }
+}
+
+@-moz-keyframes sideWays {
+    0% {
+        margin-left:0px;
+    }
+    100% {
+        margin-left:50px;
+    }
+}
+@-o-keyframes moveclouds {
+    0% { 
+        top: 500px;
+    }
+    100% { 
+        top: -500px;
+    }
+}
+
+@-o-keyframes sideWays {
+    0% {
+        margin-left:0px;
+    }
+    100% {
+        margin-left:50px;
+    }
+}
+
+
+/*Image overlay*/
+.img-wrapper {
+  position: relative;
+  width: 50%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .9s ease;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.middle {
+  transition: .9s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.img-wrapper:hover .image {
+  opacity: 0.2;
+  transition: .9s ease;
+}
+
+.img-wrapper:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #454e99;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: 5px;
+}
+.confirmation_wrapper{
+	display: flex;
+}
+
+/*Image overlay*/
+
+/*preloader*/
+.spinner {
+  position: absolute;
+  top: 48%;
+  left: 48%;
+  font-size: 60px;
+}
+
+.spinner-wrapper {
+position: fixed;
+background: rgba(255, 255, 255, 0.4);
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+z-index: 99999999999;
+color: black;
+}
+
+.d-none{
+	display: none;
+}
+
+/*preloader*/
+
+	</style>
+
+</head>
+<body>
+			<!-- Navbar -->
+			<nav class="navbar navbar-transparent">
+    <div class="container text-center">
+        <div class="navbar-header">
+            <a href="#"><img src="https://via.placeholder.com/64/454e99/FFFFFF/?text=IPaddress.net" alt="logo"></a>
+        </div>
+    </div>
+</nav>
+<!-- Navbar ends here -->
+
+			<div class="wrapper">
+				<div class="first-half">
+					<div>
+					<h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h1>
+					<h3>Ratione voluptas quibusdam ullam, blanditiis, id sed suscipit</h3>
+					</div>
+				</div>
+				<div class="second-half">
+					<div>
+						<!-- PHP script -->
+						<form action="" method="POST" id="validate_form" data-parsley-validate >
+
+<!-- 1st panel -->
+							<fieldset id="first-panel" data-aos="fade-up" data-aos-duration="900">
+								<div class="text-center first-panel-header" >
+						<h2 class="create-account text-center">Create Account</h2>
+						<h4> <strong>Please fill out the account details below</strong></h4>
+						</div>
+
+								<input 
+									name="signup_email" 
+									id="email" 
+									placeholder="Your email"
+									data-parsley-required 
+									data-parsley-required-message="Enter an e-mail address to proceed"
+								   	data-parsley-type="email"
+								   	data-parsley-type-message="This is not a valid e-mail address"
+									autofocus="true" 
+									autocomplete="on" 
+									data-toggle="tooltip" 
+									data-placement="top" 
+									title=""
+								>
+
+								<input 
+									type="password" 
+									name="signup_password" 
+									id="password" 
+									placeholder="Your password"
+									data-parsley-length= "[6,16]"
+									data-parsley-length-message="Password should not be less than 6 characters"
+									data-parsley-required 
+									autocomplete="on"
+									data-parsley-required-message="Enter a password to proceed"
+									data-toggle="tooltip" 
+									data-placement="top" 
+									title="Input your password"
+								>
+
+								<p>
+									<small id="warning" class="text-center"> Caps lock is ON.</small>
+								</p>
+
+								<input 
+									type="password"
+									name="signup_confirm_password"
+									id="confirm-password"
+									placeholder="Confirm your password"
+									data-parsley-equalto="#password"
+									data-parsley-equalto-message="Password should match the one used above"
+									data-parsley-required 
+									autocomplete="on"
+									data-parsley-required-message="Password should match the one used above"
+									data-toggle="tooltip" 
+									data-placement="bottom" 
+									title="Input the same password you used above"
+									>
+
+									<p class="terms">
+										<input
+										type="checkbox"
+										name="reg_checkbox"
+										id="reg_checkbox"
+										checked
+										data-parsley-required 
+										data-parsley-required-message="You must agree to the terms of use before proceeding"
+										>
+										<label for="reg_checkbox">
+											I agree to all terms included in 
+											<a href="#"> 
+											Terms of Use 
+										</a>
+										</label>
+									</p>
+
+									<button  
+										id="register"
+										type="submit" 
+										value="register" 
+										>
+										Register
+									</button>
+									<hr>
+									<h4 class="create-account">Already have an account with us?</h4>
+									<button  
+										value="login"  
+										class="form_button"
+										disabled="true" 
+										> 
+										Login
+										<i class="fa fa-circle-o-notch fa-spin l-loading"></i> 
+									</button>
+							</fieldset>
+<!-- 1st panel ends here -->
+								
+							<fieldset class="login" id="confirmation_form">
+
+								<p>
+									<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0DMQDl3WqLWySelujc6Kw8NnOqNqvyNMa2fDhmaKDJct82ixf&s" height="90px" width="100px" alt="">
+								</p>
+
+					<h3 class="create-account">
+
+				Confirm Registration 
+					</h3>
+
+					<p style="font-weight: 600">
+
+					Click on an image which best describes you
+				</p>
+					
+
+							<div class="spinner-wrapper d-none">
+									<div class="spinner"> <i class="fa fa-gear fa-spin preloader"></i> </div>
+							</div>
+
+					<div class="confirmation_wrapper">
+							<div class="img-wrapper" onclick="registerAsTutor(/*PHP script goes here*/)">
+  						<img src="https://previews.123rf.com/images/tarikvision/tarikvision1712/tarikvision171200026/91316760-online-coach-flat-isometric-vector-concept-hand-is-holding-a-smartphone-with-a-fitness-instructor-on.jpg" alt="Avatar" class="image" 
+  						height="100px" width="100px">
+  							<div class="middle">
+    					<div class="text">Tutor</div>
+  					</div>
+					</div>
+
+					<div class="img-wrapper" onclick="registerAsCustomer(/*PHP script goes here*/)">
+  						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVrwv4N19KuJOSvaNaPhqilrr4rgbGpgR1Ikr_YOtD2VqAmrE&s"  alt="Avatar" class="image" 
+  						height="100px" width="100px">
+  							<div class="middle">
+    					<div class="text">Customer</div>
+  						</div>
+					</div>
+				</div>
+
+					<p class="back">
+						Filled in the wrong details? 
+						<button id="previous">
+							<i class="fa fa-angle-double-left" id="back_icon"></i>
+						Go back 
+					</button>
+					</p>
+
+			 <div id="bubbles">
+        <div class="bubble x1"></div>
+        <div class="bubble x2"></div>
+        <div class="bubble x3"></div>
+        <div class="bubble x4"></div>
+        <div class="bubble x5"></div>
+          <div class="bubble x6"></div>
+</div>
+
+	</fieldset>
+<!-- 2nd panel ends here -->
+
+						</form>
+<!-- SignUp/Login Form ends here -->
+					</div>	
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+  		AOS.init();
+	</script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous"></script>
+
+	<script>
+
+
+			$(document).ready(function(){
+					 $('[data-toggle="tooltip"]').tooltip();  
+			        $('#validate_form').parsley();
+			            $("#validate_form").on('submit', function(event){
+			                  event.preventDefault(); 
+			                 })
+			            })
+
+/***************Go Back*******************/
+	$("#previous").click(function(event) {
+		 $("#confirmation_form").addClass('animate__animated animate__fadeOutDown')
+			$('#confirmation_form').delay('200').fadeOut('1000');
+			  $('#first-panel').delay('400').fadeIn('1500');
+			    $('#first-panel').addClass('animate__animated animate__fadeInDown')
+			    	setTimeout(removeBackwardAnimation, 1500)
+	});
+
+/******************************************/
+
+/************hide all preloaders****************/
+					$("#confirmation_form").hide();
+			  $(".success-message").hide();
+			      $("i").each(function() { $(this).hide();});
+			      $("#back_icon").show();
+			      
+/*********************************************/
+
+
+
+/*************Detect CAPS Lock**************/
+
+			var input = document.querySelector("#password");
+
+			var text = document.querySelector("#warning");
+
+			input.addEventListener("keyup", function(event) {
+
+			  if (event.getModifierState("CapsLock")) {
+			    text.style.display = "block";
+			  } else {
+			    text.style.display = "none"
+			  }
+			});
+/****************************************/
+
+
+
+
+						/**********************Customer Form AJAX call******************/
+
+			function customerFormCall(url){
+								$(".spinner-wrapper").addClass('d-none');
+			                    $.ajax({
+			                    url: url,
+			                    type: 'POST',
+			                    data: $("#validate_form").serialize(),
+			                    success: function(data){
+			                    	toggleButtons(false)
+			                     $('#register').attr('disabled', false)
+			                      swal("Registration Unsuccessful", "Lorem ipsum dolor sit amet", "error");
+			                       $('.c-loading').hide();
+			                       $('#confirmation_form').fadeOut('1000');
+			                        $('#first-panel').delay('800').fadeIn('1500');
+
+			                    },
+
+			                    error: function(data){
+			                    	toggleButtons(false)
+			                       $('#register').attr('disabled', false)
+			                      swal("Registration Unsuccessful", "Lorem ipsum dolor sit amet", "error");
+			                       $('.c-loading').hide();
+			                       $('#confirmation_form').fadeOut('1000');
+			                         $('#first-panel').delay('800').fadeIn('1500');
+			                  }
+			         })
+			    }
+
+					/********************************************************************/
+
+
+					 /***********************************Tutor Form AJAX call**********************/
+
+			    function tutorFormCall(url){
+			    				$(".spinner-wrapper").addClass('d-none');
+			                   $.ajax({
+			                    url: url,
+			                    type: 'POST',
+			                    data: $("#validate_form").serialize(),
+			                    success: function(data){
+			                    	toggleButtons(false)
+			                      $('#validate_form')[0].reset();
+			                      $('#validate_form').parsley().reset();
+			                    swal("Registration Successful", "You will now be redirected", "success");
+			                         window.location.href="https://samuel-orobosa.netlify.app" /*Login endpoint*/
+			                    },
+
+			                    error: function(data){
+			                    toggleButtons(false)
+			                      $('#validate_form')[0].reset();
+			                      $('#validate_form').parsley().reset();
+			                    swal("Registration Successful", "You will now be redirected", "success");
+			                        window.location.href="https://samuel-orobosa.netlify.app" /*Login endpoint*/
+			                  }
+			           })
+
+			    }
+								/*********************************************************************/
+
+
+
+/*****************************switchForm*********************/
+
+			$("#register").click(function switchForm(){
+			   if($("#validate_form").parsley().isValid()){
+			     $("#first-panel").addClass('animate__animated animate__fadeOutUp')
+			     $('#first-panel').delay('200').fadeOut('1000');
+			            $('#confirmation_form').delay('400').fadeIn('1500');
+			            $('#confirmation_form').addClass('animate__animated animate__fadeInUp')
+			           setTimeout(removeForwardAnimation, 1300)
+			  }
+			});
+
+/*************************************************************/
+
+			        
+ /******************************Register as Tutor***********************/
+
+			      function registerAsTutor(url){
+						 if($("#validate_form").parsley().isValid()){
+						 	$(".spinner-wrapper").removeClass('d-none');
+							$('.preloader').show();
+							 	toggleButtons(true)
+									setTimeout(tutorFormCall, 3000)
+							}
+					 	}
+
+/***********************************************************/
+
+ /******************Register as a Customer*************/
+			    function registerAsCustomer(url){
+			                 if($("#validate_form").parsley().isValid()){
+			                 	$(".spinner-wrapper").removeClass('d-none');
+			                     $('.preloader').show();
+			                     toggleButtons(true)
+			                  setTimeout(customerFormCall, 3000)
+			           		}
+				      }
+  /*************************************************************/
+
+
+
+
+
+
+/*************************Buttons, Loaders and Transitions**************************************/
+
+
+
+/***********Enable/Disable Buttons **************/
+	function toggleButtons(boolean){
+		$('#tutor-reg').attr('disabled', boolean)
+		$('#customer-reg').attr('disabled', boolean)
+	}
+/*****************************************/
+
+/******************Remove Animation Classes**********************/
+	function removeForwardAnimation(){
+		$("#first-panel").removeClass('animate__animated animate__fadeOutUp')
+		$('#confirmation_form').removeClass('animate__animated animate__fadeInUp')
+	} 
+
+	function removeBackwardAnimation(){
+		 $("#confirmation_form").removeClass('animate__animated animate__fadeOutDown')
+		  $('#first-panel').removeClass('animate__animated animate__fadeInDown')
+	}
+/*********************************************************/
+
+
+
+
+/*****************************************************************************************************************/
+</script>
+</body>
+</html>
