@@ -106,6 +106,15 @@
 						width: 300px;
 					}
 
+				.error-message{
+						background: #cc3333;
+						color: white;
+						padding: 0.5rem 0.8rem;
+						margin-bottom: 5px;
+						border-radius: 5px;
+						margin-top: 10px;
+						font-size: 600;
+					}
 
 				.second-half{
 						padding: 2rem 4rem;
@@ -224,6 +233,10 @@
 						font-size: 1.8rem;
 						font-weight: 500;
 						color: #454e99;
+					}
+
+					.visibility-hidden{
+						visibility: hidden;
 					}
 
 				#confirmation_form .back button{
@@ -490,13 +503,19 @@ color: black;
 				</div>
 				<div class="second-half">
 					<div>
-
 						<!-- PHP script -->
 						<form action="" method="POST" id="validate_form" data-parsley-validate >
 
 <!--------------------------------------------------- 1st panel ------------------------------------->
 
 							<fieldset id="first-panel" data-aos="fade-up" data-aos-duration="900">
+								<div class="error-message text-center d-none">
+							<div>
+							<h3>
+							<i class="fa fa-warning" style="font-size: 30px"></i>
+							Registration Unsuccessful </h3>
+							</div>
+						</div>
 								<div class="text-center first-panel-header" >
 						<h2 class="create-account text-center">Create Account</h2>
 						<h4> Fill out the account details below</h4>
@@ -583,7 +602,6 @@ color: black;
 										disabled="true" 
 										> 
 										Login
-										<i class="fa fa-circle-o-notch fa-spin l-loading"></i> 
 									</button>
 							</fieldset>
 
@@ -591,7 +609,7 @@ color: black;
 
 <!---------------------------------- 2nd panel ---------------------------------------->
 								
-							<fieldset class="login" id="confirmation_form">
+							<fieldset class="login visibility-hidden" id="confirmation_form">
 
 								<p>
 									<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0DMQDl3WqLWySelujc6Kw8NnOqNqvyNMa2fDhmaKDJct82ixf&s" height="90px" width="100px" alt="">
@@ -691,6 +709,7 @@ color: black;
 
 /***************Go Back*******************/
 	$("#previous").click(function(event) {
+		$(".error-message").addClass('d-none');
 		 $("#confirmation_form").addClass('animate__animated animate__fadeOutDown')
 			$('#confirmation_form').delay('200').fadeOut('1000');
 			  $('#first-panel').delay('400').fadeIn('1500');
@@ -703,8 +722,6 @@ color: black;
 /************hide all preloaders****************/
 					$("#confirmation_form").hide();
 			  			$(".success-message").hide();
-			      			$("i").each(function() { $(this).hide();});
-			      				$("#back_icon").show();
 			      
 /*********************************************/
 
@@ -732,6 +749,7 @@ color: black;
 						/**********************Customer Form AJAX call******************/
 
 			function customerFormCall(url){
+								$(".error-message").addClass('d-none')
 								$(".spinner-wrapper").addClass('d-none');
 			                    $.ajax({
 			                    url: url,
@@ -739,8 +757,8 @@ color: black;
 			                    data: $("#validate_form").serialize(),
 			                    success: function(data){
 			                    	toggleButtons(false)
-			                     $('#register').attr('disabled', false)
-			                      swal("Registration Unsuccessful", "Lorem ipsum dolor sit amet", "error");
+			                     $('#register').attr('disabled', false);
+			                     $(".error-message").removeClass('d-none')
 			                       $('#confirmation_form').fadeOut('1000');
 			                        $('#first-panel').delay('800').fadeIn('1500');
 
@@ -748,8 +766,8 @@ color: black;
 
 			                    error: function(data){
 			                    	toggleButtons(false)
-			                       $('#register').attr('disabled', false)
-			                      swal("Registration Unsuccessful", "Lorem ipsum dolor sit amet", "error");
+			                       $('#register').attr('disabled', false);
+			                         $(".error-message").removeClass('d-none')
 			                       $('#confirmation_form').fadeOut('1000');
 			                         $('#first-panel').delay('800').fadeIn('1500');
 			                  }
@@ -762,6 +780,7 @@ color: black;
 					 /***********************************Tutor Form AJAX call**********************/
 
 			    function tutorFormCall(url){
+			    				$(".error-message").addClass('d-none')
 			    				$(".spinner-wrapper").addClass('d-none');
 			                   $.ajax({
 			                    url: url,
@@ -793,11 +812,12 @@ color: black;
 
 			$("#register").click(function switchForm(){
 			   if($("#validate_form").parsley().isValid()){
-			     $("#first-panel").addClass('animate__animated animate__fadeOutUp')
-			     $('#first-panel').delay('200').fadeOut('1000');
-			            $('#confirmation_form').delay('400').fadeIn('1500');
-			            $('#confirmation_form').addClass('animate__animated animate__fadeInUp')
-			           setTimeout(removeForwardAnimation, 1300)
+					$("#confirmation_form").removeClass('visibility-hidden')
+			     		$("#first-panel").addClass('animate__animated animate__fadeOutUp')
+			     			$('#first-panel').delay('200').fadeOut('1000');
+			            		$('#confirmation_form').delay('400').fadeIn('1500');
+			            			$('#confirmation_form').addClass('animate__animated animate__fadeInUp')
+			           					setTimeout(removeForwardAnimation, 1300)
 			  }
 			});
 
@@ -818,11 +838,11 @@ color: black;
 			      function registerAsTutor(url){
 						 if($("#validate_form").parsley().isValid()){
 						 	$(".spinner-wrapper").removeClass('d-none');
-							$('.preloader').show();
-							 	toggleButtons(true)
-									setTimeout(tutorFormCall, 3000)
-							}
-					 	}
+								$('.preloader').show();
+							 		toggleButtons(true)
+										setTimeout(tutorFormCall, 3000)
+								}
+					 		}
 
 /***********************************************************/
 
@@ -830,11 +850,11 @@ color: black;
 			    function registerAsCustomer(url){
 			                 if($("#validate_form").parsley().isValid()){
 			                 	$(".spinner-wrapper").removeClass('d-none');
-			                     $('.preloader').show();
-			                     toggleButtons(true)
-			                  setTimeout(customerFormCall, 3000)
-			           		}
-				      }
+			                     	$('.preloader').show();
+			                     		toggleButtons(true)
+			                  				setTimeout(customerFormCall, 3000)
+			           				}
+				     			 }
 
 	/***************************************************/	
 			      
