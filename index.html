@@ -13,7 +13,7 @@
 	
 
 	body,html{
-				height: 100vh;
+				/*height: 100vh;*/
 				width: 100vw;
 				background-color: #F9F9FF;
 				font-family: 'Archivo', sans-serif;
@@ -21,7 +21,6 @@
 				background-repeat: no-repeat;
 				background-position: center center;
 				background-size: cover;
-				overflow: hidden;
 			}
 
 
@@ -96,14 +95,22 @@
 				.first-half{
 						background-image: linear-gradient(to right, #94309F, #52347C);
 						color: #fff;
-						padding: 2rem 8rem;
 						border-top-left-radius: 5px;
 						border-bottom-left-radius: 5px;
 					}
 
 				.first-half div{
 						margin-top: 7rem;
-						width: 300px;
+						width: 15vw;
+						margin: 14rem 8rem 2rem 8rem;
+					}
+
+					.first-half div p:first-child{
+						font-size: 3rem;
+					}
+
+					.first-half div p:last-child{
+						font-size: 1.8vw;
 					}
 
 				.error-message{
@@ -113,7 +120,6 @@
 						margin-bottom: 5px;
 						border-radius: 5px;
 						margin-top: 10px;
-						font-size: 600;
 					}
 
 				.second-half{
@@ -148,7 +154,7 @@
 				input[type=password]{
 						margin-left: auto;
 						margin-right: auto;
-						width: 80%;
+						width: 85%;
 						display: block;
 						outline: none;
 						margin-top: 15px;
@@ -179,12 +185,13 @@
 						font-size: 1.5rem;
 					}
 
-					label{
-						font-weight: 200;
+				label{
+					font-weight: 200;
 					}
 
 				hr{
 					border-top: 2px solid darkgray;
+					width: 70vw;
 					}
 
 				button{
@@ -205,7 +212,6 @@
 
 				button:hover{
 						background: #661A60;
-
 						color: white;
 					}
 
@@ -476,6 +482,36 @@ color: black;
 
 /*********************************************************************************/
 
+
+/**************************Media Queries*****************************************/
+
+/**********************Tablet*******************/
+@media screen and (max-width:768px ) {
+	.first-half{
+		display: none;
+	}
+
+	.second-half{
+		border-radius: 5px;
+		padding: 2rem 0rem;
+		margin: 1rem;
+	}
+
+	label{
+		font-size: 1.4rem;
+	}
+}
+
+
+/************************************Mobile*****************************/
+@media screen and (max-width: 480px) {
+	label{
+		font-size: 3.2vw;
+	}
+}
+
+
+/*********************************************************************/
 	</style>
 
 </head>
@@ -497,8 +533,8 @@ color: black;
 			<div class="wrapper">
 				<div class="first-half">
 					<div>
-					<h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h1>
-					<h3>Ratione voluptas quibusdam ullam, blanditiis, id sed suscipit</h3>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+					<p>Ratione voluptas quibusdam ullam, blanditiis, id sed suscipit</p>
 					</div>
 				</div>
 				<div class="second-half">
@@ -698,6 +734,8 @@ color: black;
 	<script>
 
 
+
+/**************************Function runs onload************************************/
 			$(document).ready(function(){
 					 $('[data-toggle="tooltip"]').tooltip();  
 			        $('#validate_form').parsley();
@@ -705,6 +743,8 @@ color: black;
 			                  event.preventDefault(); 
 			                 })
 			            })
+/**************************************************************************/
+
 
 
 /***************Go Back*******************/
