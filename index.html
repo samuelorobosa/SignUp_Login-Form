@@ -92,7 +92,7 @@
 					display: flex;
 					height: 84vh;
 					justify-content: center;
-					overflow: hidden;
+					/*overflow: hidden;*/
 					flex: 1;
 					
 					}
@@ -136,7 +136,6 @@
 						border-bottom-right-radius: 5px;
 						color: #808080;
 						overflow: hidden;
-						
 					}
 
 				form{
@@ -518,6 +517,7 @@ color: black;
 		border-radius: 5px;
 		padding: 2rem 0rem;
 		margin: 1rem;
+		overflow-y: scroll;
 	}
 
 	label{
@@ -977,12 +977,12 @@ button{
 
 
 
-/***********Enable/Disable Buttons **************/
-	function toggleButtons(boolean){
-		$('#tutor-reg').attr('disabled', boolean)
-		$('#customer-reg').attr('disabled', boolean)
-	}
-/*****************************************/
+		/***********Enable/Disable Buttons **************/
+			function toggleButtons(boolean){
+				$('#tutor-reg').attr('disabled', boolean)
+				$('#customer-reg').attr('disabled', boolean)
+			}
+		/************************************************/
 
 
 
@@ -996,7 +996,7 @@ button{
 		 $("#confirmation_form").removeClass('animate__animated animate__fadeOutDown')
 		  $('#first-panel').removeClass('animate__animated animate__fadeInDown')
 	}
-/*********************************************************/
+/********************************************************************************/
 
 
 
