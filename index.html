@@ -122,10 +122,10 @@
 				.error-message{
 						background: #cc3333;
 						color: white;
-						padding: 0.5rem 0.8rem;
-						margin-bottom: 5px;
+						padding: 0.1rem 0.4rem;
+						margin-bottom: 1px;
 						border-radius: 5px;
-						margin-top: 10px;
+						margin-top: 9px;
 					}
 
 				.second-half{
@@ -140,13 +140,17 @@
 					}
 
 				form{
-						padding: 0rem 1rem 3rem 1rem;
+						padding: 0rem 1.4rem 2rem 1rem;
 						text-align: center;
 						overflow: hidden;
 						height: 590px;
 						overflow-y: hidden;
-						margin-top: -20px;
+						margin-top: -25px;
 					}
+
+				#first-panel{
+					padding-bottom: 2rem;
+				}
 
 				.create-account{
 						color: #454e99;
@@ -502,7 +506,7 @@ color: black;
 /*********************************************************************************/
 
 
-/**************************Media Queries*****************************************/
+/**************************Media Queries****************************************/
 
 /**********************Tablet*******************/
 @media screen and (max-width:768px ) {
@@ -532,7 +536,12 @@ color: black;
 	.error-message div h3{
 		font-size: 1.8rem;
 	}
-}
+
+	.text{
+	display: none;
+	}
+}      
+
 
 
 /************************************Mobile*****************************/
@@ -559,7 +568,7 @@ color: black;
 }
 
 button{
-	margin-top: 2vw;
+	margin-top: 0.5vw;
 }
 
 }
@@ -572,12 +581,13 @@ button{
 
 <!------------------------------------ Navbar ----------------------->
 			<nav class="navbar navbar-transparent">
-    <div class="container text-center">
-        <div class="navbar-header">
-            <a href="#"><img src="https://via.placeholder.com/64/FFFFFF/000000/?text=IPaddress.net" alt="logo"></a>
-        </div>
-    </div>
-</nav>
+    			<div class="container text-center">
+        			<div class="navbar-header">
+            			<a href="#"><img src="https://via.placeholder.com/64/FFFFFF/000000/?text=IPaddress.net" alt="logo">
+            		</a>
+        		</div>
+    		</div>
+		</nav>
 
 <!------------------------ Navbar ends here ----------------------------->
 
@@ -586,10 +596,13 @@ button{
 			<div class="wrapper">
 				<div class="first-half">
 					<div>
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-					<p>Ratione voluptas quibusdam ullam, blanditiis, id sed suscipit</p>
-					</div>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+					</p>
+					<p>
+					Ratione voluptas quibusdam ullam, blanditiis, id sed suscipit
+					</p>
 				</div>
+			</div>
 				<div class="second-half">
 					<div>
 						<!-- PHP script -->
